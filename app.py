@@ -239,10 +239,10 @@ else:
         No estás solo/a. Pedir ayuda es un acto de valentía.
         """)
 
-        if a.get("urgencia") == "alta":
+if a.get("urgencia") == "alta":
             st.error("Se recomienda buscar apoyo profesional lo antes posible.")
 
-    if st.button("🔄 Empezar nueva evaluación"):
+if st.button("🔄 Empezar nueva evaluación"):
         st.session_state.datos_iniciales = None
         st.session_state.messages = []
         st.session_state.analisis_final = None
