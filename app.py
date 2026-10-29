@@ -53,7 +53,7 @@ Sé muy cuidadoso. Nunca digas que es un diagnóstico médico. Si detectas alto 
 st.set_page_config(page_title="Evaluador de Estrés", page_icon="🌿", layout="centered")
 
 # ========== ESTILOS VERDES ==========
-st.markdown(“””
+st.markdown("""
 <style>
     /* Fondo suave */
     .stApp {
