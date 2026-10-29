@@ -226,7 +226,7 @@ else:
             Esta es una herramienta de orientación y **no constituye una valoración ni diagnóstico médico o psicológico**.
         ")
 
-        st.markdown("""
+        st.markdown(""
         ### ¿Necesitas apoyo?
         Si te sientes abrumado, con mucha ansiedad o tienes pensamientos de abandonar, puedes contactar:
 
