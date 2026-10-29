@@ -60,7 +60,7 @@ st.markdown("""
         background-color: #f0f7f4 !important;
     }
 
-    /* Título principal - forzar color oscuro */
+    /* Título principal - color oscuro */
     h1 {
         color: #1a5c4b !important;
         font-weight: 700 !important;
