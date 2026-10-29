@@ -201,7 +201,7 @@ else:
 
 # ========== CÓDIGO QR ==========
 with st.expander("📱 Compartir esta encuesta (Código QR)"):
-    app_url = "https://tu-app.streamlit.app"   # ← Cambia por tu enlace real
+    app_url = "https://evaluador-estres-20-avue9v2x4btmjimt97txof.streamlit.app/"   # ← Cambia por tu enlace real
 
     qr = qrcode.QRCode(version=1, box_size=8, border=2)
     qr.add_data(app_url)
