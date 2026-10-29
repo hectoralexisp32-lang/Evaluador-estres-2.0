@@ -221,10 +221,10 @@ else:
             for r in a["recomendaciones"]:
                 st.write(f"• {r}")
 
-        st.warning("""
-                ⚠️ **Importante:**  
-                Esta es una herramienta de orientación y **no constituye una valoración ni diagnóstico médico o psicológico**.
-        """)
+        st.warning("
+            🔊Importante: 
+            Esta es una herramienta de orientación y **no constituye una valoración ni diagnóstico médico o psicológico**.
+        ")
 
         st.markdown("""
         ### ¿Necesitas apoyo?
