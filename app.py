@@ -53,38 +53,51 @@ Sé muy cuidadoso. Nunca digas que es un diagnóstico médico. Si detectas alto 
 st.set_page_config(page_title="Evaluador de Estrés", page_icon="🌿", layout="centered")
 
 # ========== ESTILOS VERDES ==========
-st.markdown("""
+st.markdown(“””
 <style>
+    /* Fondo suave */
     .stApp {
-        background-color: #f0f7f4;
+        Background-color: #f0f7f4 ¡important;
     }
-    h1 {
-        color: #1a5c4b;
-        font-weight: 700;
+
+    /* Título principal – forzar color oscuro */
+    H1 {
+        Color: #1ª5c4b ¡important;
+        Font-weight: 700 ¡important;
+        Opacity: 1 ¡important;
     }
-    h2, h3 {
-        color: #2e7d6b;
+
+    /* Subtítulos */
+    H2, h3, h4 {
+        Color: #2e7d6b ¡important;
     }
+
+    /* Texto general */
+    P, .stMarkdown, label {
+        Color: #1ª3c34 ¡important;
+    }
+
+    /* Botones verdes */
     .stButton>button {
-        background-color: #2e7d6b;
-        color: white;
-        border-radius: 10px;
-        border: none;
-        padding: 0.6rem 1.2rem;
-        font-weight: 500;
+        Background-color: #2e7d6b ¡important;
+        Color: white ¡important;
+        Border-radius: 10px ¡important;
+        Border: none ¡important;
+        Padding: 0.6rem 1.2rem ¡important;
+        Font-weight: 500 ¡important;
     }
+
     .stButton>button:hover {
-        background-color: #1a5c4b;
-        color: white;
+        Background-color: #1ª5c4b ¡important;
+        Color: white ¡important;
     }
+
+    /* Cajas de información */
     .stAlert {
-        border-radius: 12px;
-    }
-    .stTextInput>div>div>input, .stSelectbox>div>div {
-        border-radius: 10px;
+        Border-radius: 12px ¡important;
     }
 </style>
-""", unsafe_allow_html=True)
+“””, unsafe_allow_html=True)
 
 # ========== IMAGEN + TÍTULO ==========
 st.image("https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80", use_container_width=True)
