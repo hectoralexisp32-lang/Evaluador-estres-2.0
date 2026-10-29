@@ -12,7 +12,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-MODELO = "openia/gpt-oss-120b"
+MODELO = "openai/gpt-oss-120b"
 
 # ====== CONTRASEÑA DEL ANFITRIÓN ======
 HOST_PASSWORD = "admi1412"   # ← Cambia esta contraseña
@@ -57,47 +57,47 @@ st.markdown("""
 <style>
     /* Fondo suave */
     .stApp {
-        Background-color: #f0f7f4 ¡important;
+        background-color: #f0f7f4 !important;
     }
 
-    /* Título principal – forzar color oscuro */
-    H1 {
-        Color: #1ª5c4b ¡important;
-        Font-weight: 700 ¡important;
-        Opacity: 1 ¡important;
+    /* Título principal - forzar color oscuro */
+    h1 {
+        color: #1a5c4b !important;
+        font-weight: 700 !important;
+        opacity: 1 !important;
     }
 
     /* Subtítulos */
-    H2, h3, h4 {
-        Color: #2e7d6b ¡important;
+    h2, h3, h4 {
+        color: #2e7d6b !important;
     }
 
     /* Texto general */
-    P, .stMarkdown, label {
-        Color: #1ª3c34 ¡important;
+    p, .stMarkdown, label {
+        color: #1a3c34 !important;
     }
 
     /* Botones verdes */
     .stButton>button {
-        Background-color: #2e7d6b ¡important;
-        Color: white ¡important;
-        Border-radius: 10px ¡important;
-        Border: none ¡important;
-        Padding: 0.6rem 1.2rem ¡important;
-        Font-weight: 500 ¡important;
+        background-color: #2e7d6b !important;
+        color: white !important;
+        border-radius: 10px !important;
+        border: none !important;
+        padding: 0.6rem 1.2rem !important;
+        font-weight: 500 !important;
     }
 
     .stButton>button:hover {
-        Background-color: #1ª5c4b ¡important;
-        Color: white ¡important;
+        background-color: #1a5c4b !important;
+        color: white !important;
     }
 
     /* Cajas de información */
     .stAlert {
-        Border-radius: 12px ¡important;
+        border-radius: 12px !important;
     }
 </style>
-“””, unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 # ========== IMAGEN + TÍTULO ==========
 st.image("https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80", use_container_width=True)
@@ -221,12 +221,12 @@ else:
             for r in a["recomendaciones"]:
                 st.write(f"• {r}")
 
-        st.warning("
-            🔊Importante: 
-            Esta es una herramienta de orientación y **no constituye una valoración ni diagnóstico médico o psicológico**.
-        ")
+        st.warning("""
+        ⚠️ **Importante:**  
+        Esta es una herramienta de orientación y **no constituye una valoración ni diagnóstico médico o psicológico**.
+        """)
 
-        st.markdown(""
+        st.markdown("""
         ### ¿Necesitas apoyo?
         Si te sientes abrumado, con mucha ansiedad o tienes pensamientos de abandonar, puedes contactar:
 
@@ -239,10 +239,10 @@ else:
         No estás solo/a. Pedir ayuda es un acto de valentía.
         """)
 
-if a.get("urgencia") == "alta":
+        if a.get("urgencia") == "alta":
             st.error("Se recomienda buscar apoyo profesional lo antes posible.")
 
-if st.button("🔄 Empezar nueva evaluación"):
+    if st.button("🔄 Empezar nueva evaluación"):
         st.session_state.datos_iniciales = None
         st.session_state.messages = []
         st.session_state.analisis_final = None
@@ -311,4 +311,3 @@ elif password:
 
 st.markdown("---")
 st.caption("Encuesta anónima • Sin fines de lucro • Esta herramienta no sustituye la atención de un profesional de la salud mental.")
-
