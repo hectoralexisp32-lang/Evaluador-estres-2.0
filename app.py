@@ -12,7 +12,7 @@ client = OpenAI(
     base_url="https://api.groq.com/openai/v1"
 )
 
-MODELO = "openai/gpt-oss-120b"
+MODELO = "openia/gpt-oss-120b"
 
 # ====== CONTRASEÑA DEL ANFITRIÓN ======
 HOST_PASSWORD = "admi1412"   # ← Cambia esta contraseña
@@ -50,9 +50,46 @@ Cuando sientas que ya tienes una buena comprensión del estado emocional y de la
 Sé muy cuidadoso. Nunca digas que es un diagnóstico médico. Si detectas alto sufrimiento emocional, recomienda con suavidad buscar apoyo profesional.
 """
 
-st.set_page_config(page_title="Evaluador de Estrés", page_icon="🧠", layout="centered")
-st.title("🧠 Evaluador de Estrés")
-st.caption("Encuesta anónima • Sin fines de lucro • Solo con fines de análisis académico")
+st.set_page_config(page_title="Evaluador de Estrés", page_icon="🌿", layout="centered")
+
+# ========== ESTILOS VERDES ==========
+st.markdown("""
+<style>
+    .stApp {
+        background-color: #f0f7f4;
+    }
+    h1 {
+        color: #1a5c4b;
+        font-weight: 700;
+    }
+    h2, h3 {
+        color: #2e7d6b;
+    }
+    .stButton>button {
+        background-color: #2e7d6b;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 0.6rem 1.2rem;
+        font-weight: 500;
+    }
+    .stButton>button:hover {
+        background-color: #1a5c4b;
+        color: white;
+    }
+    .stAlert {
+        border-radius: 12px;
+    }
+    .stTextInput>div>div>input, .stSelectbox>div>div {
+        border-radius: 10px;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+# ========== IMAGEN + TÍTULO ==========
+st.image("https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80", use_container_width=True)
+st.title("🌿 Un espacio seguro para ti")
+st.caption("Encuesta anónima • Sin fines de lucro • Estamos aquí para escucharte")
 
 st.info("🔒 Esta evaluación es **100% anónima**. No se solicita nombre ni datos personales.")
 
@@ -92,7 +129,7 @@ if st.session_state.datos_iniciales is None:
             st.session_state.messages = [
                 {
                     "role": "assistant",
-                    "content": f"Hola 👋 Qué bueno que estás aquí. Sé que a veces no es fácil hablar de cómo nos sentimos. Estás en **{carrera}** (cuatrimestre {cuatrimestre}). Cuéntame, ¿cómo te has estado sintiendo últimamente con tus estudios o tu trabajo? Estoy aquí para escucharte."
+                    "content": f"Hola 👋 Qué bueno que estás aquí. Sé que a veces no es fácil hablar de cómo nos sentimos. Estás en **{carrera}** (cuatrimestre {cuatrimestre}). Cuéntame, ¿cómo te has estado sintiendo últimamente con tus estudios o tu trabajo? Estoy aquí para escucharte con calma."
                 }
             ]
             st.rerun()
@@ -114,7 +151,7 @@ else:
             st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            with st.spinner("Escuchándote..."):
+            with st.spinner("Escuchándote con atención..."):
                 try:
                     response = client.chat.completions.create(
                         model=MODELO,
@@ -150,7 +187,6 @@ else:
             except:
                 pass
 
-    # ========== RESULTADO ==========
     if st.session_state.analisis_final:
         st.divider()
         st.subheader("📊 Resultado de esta evaluación")
