@@ -4,3 +4,5 @@ pandas
 plotly
 qrcode
 Pillow
+gspread
+google-auth
