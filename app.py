@@ -11,6 +11,37 @@ client = OpenAI(
     api_key=st.secrets["GROQ_API_KEY"],
     base_url="https://api.groq.com/openai/v1"
 )
+# ====== CONEXIÓN CON GOOGLE SHEETS ======
+def conectar_sheets():
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive"
+    ]
+    creds = Credentials.from_service_account_info(
+        json.loads(st.secrets["sheets"]["creds"]),
+        scopes=scopes
+    )
+    client_gs = gspread.authorize(creds)
+    sheet = client_gs.open_by_key(st.secrets["sheets"]["sheet_id"]).sheet1
+    return sheet
+
+def guardar_en_sheets(datos):
+    try:
+        sheet = conectar_sheets()
+        fila = [
+            datos.get("fecha", ""),
+            datos.get("carrera", ""),
+            datos.get("cuatrimestre", ""),
+            datos.get("nivel_estres", ""),
+            datos.get("riesgo_renuncia_trabajo", ""),
+            datos.get("riesgo_abandono_universidad", ""),
+            datos.get("factores", "")
+        ]
+        sheet.append_row(fila)
+        return True
+    except Exception as e:
+        st.error(f"Error al guardar en Google Sheets: {e}")
+        return False
 
 MODELO = "openai/gpt-oss-120b"
 
